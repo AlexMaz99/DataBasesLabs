@@ -12,7 +12,7 @@ FROM Products
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
 WHERE CompanyName LIKE 'Tokyo Traders'
 
---3
+--3a
 
 SELECT CompanyName, Address
 FROM Customers
@@ -22,6 +22,13 @@ WHERE Customers.CustomerID NOT IN (
 	INNER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
 	WHERE YEAR(OrderDate)=1997
 )
+
+--3b
+
+SELECT CompanyName, Address
+FROM Customers
+LEFT OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID AND YEAR(OrderDate)=1997
+WHERE YEAR(OrderDate) IS NULL
 
 --4
 
