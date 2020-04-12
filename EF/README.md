@@ -1,4 +1,4 @@
-# EntityFramework, LINQ2Entities
+# Entity Framework
 ## Aleksandra Mazur
 
 ### Zadanie I
