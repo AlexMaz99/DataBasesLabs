@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AMazurProductEF
 {
+    //[Table("Customers")]
     class Customer: Company
     {
         public float Discount { get; set; }

@@ -11,8 +11,22 @@ namespace AMazurProductEF
         {
             ProdContext context = new ProdContext();
 
+            
+            // exercise Ief
+            Console.WriteLine("Enter product name: ");
+            String prodName = Console.ReadLine();
+            Product product = new Product { Name = prodName };
+            context.Products.Add(product);
+            context.SaveChanges();
+            foreach(Product p in context.Products)
+            {
+                Console.WriteLine(p.Name);
+            }
+
+
+
             // exercise Vc
-            /*Category category = context.Categories.Where(s => s.Name == "Electronics").FirstOrDefault();
+            Category category = context.Categories.Where(s => s.Name == "Electronics").FirstOrDefault();
             Product prod1 = context.Products.Where(s => s.Name == "TV").FirstOrDefault();
 
             context.Entry(prod1).Reference(prod => prod.Category).Load();
@@ -22,12 +36,12 @@ namespace AMazurProductEF
                 context.Entry(prod1).Property("CategoryID").CurrentValue = category.CategoryID;
                 category.Products.Add(prod1);
                 context.SaveChanges();
-            }*/
+            }
 
 
 
             // exercise Vd
-            /*Category category = context.Categories.Include(c => c.Products).ToList().Where(s => s.Name == "Electronics").FirstOrDefault();
+            Category category = context.Categories.Include(c => c.Products).ToList().Where(s => s.Name == "Electronics").FirstOrDefault();
             Console.WriteLine(category.Name + ": ");
             foreach (Product p in category.Products)
             {
@@ -41,12 +55,12 @@ namespace AMazurProductEF
             if (prod.Category != null)
             {
                 Console.WriteLine(prod.Name + " in " + prod.Category.Name);
-            }*/
+            }
 
 
 
             // exercise VIa
-            /*Product product1 = new Product { Name = "Turkey" };
+            Product product1 = new Product { Name = "Turkey" };
             Product product2 = new Product { Name = "Apple" };
             Product product3 = new Product { Name = "Orange" };
             Product product4 = new Product { Name = "Onion" };
@@ -120,12 +134,12 @@ namespace AMazurProductEF
             product4.InvoiceProducts.Add(invoiceProduct5);
             product5.InvoiceProducts.Add(invoiceProduct6);
 
-            context.SaveChanges();*/
+            context.SaveChanges();
 
 
 
             // exercise VIb
-            /*ProdContext context = new ProdContext();
+            ProdContext context = new ProdContext();
             Console.WriteLine("Invoice number = 1");
             Console.WriteLine("Products: ");
             var products = context.InvoiceProducts.Include(ip => ip.Product).Where(ip => ip.InvoiceID == 1).Select(ip => ip.Product.Name).ToList();
@@ -133,12 +147,12 @@ namespace AMazurProductEF
             foreach (var p in products)
             {
                 Console.WriteLine("- " + p);
-            }*/
+            }
 
 
 
             // exercise VId
-            /*ProdContext context = new ProdContext();
+            ProdContext context = new ProdContext();
             Console.WriteLine("Product name: Orange");
             Console.WriteLine("Invoices numbers: ");
             var invoices = context.InvoiceProducts.Include(ip => ip.Invoice).Where(ip => ip.ProductID == 3).Select(ip => ip.Invoice.InvoiceNumber).ToList();
@@ -146,12 +160,12 @@ namespace AMazurProductEF
             foreach (var i in invoices)
             {
                 Console.WriteLine("- " + i);
-            }*/
+            }
 
 
 
             // exercise VIIb
-            /*Supplier supplier1 = new Supplier
+            Supplier supplier1 = new Supplier
             {
                 CompanyName = "Supplier1",
                 City = "Cracow",
@@ -202,7 +216,7 @@ namespace AMazurProductEF
             foreach (var s in suppliers)
             {
                 Console.WriteLine("- " + s.CompanyName + " with bank account number = " + s.BackAccountNumber); ;
-            }*/
+            }
 
         }
     }

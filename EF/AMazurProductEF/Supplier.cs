@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AMazurProductEF
 {
+    //[Table("Suppliers")]
     class Supplier: Company
     {
         public Supplier()

@@ -23,7 +23,7 @@ W Mainie (plik Program.cs) poproszono użytkownika o podanie nazwy produktu i ut
 
 ![](res/2020-04-07-10-43-59.png)
 
-![](res/2020-04-06-22-59-32.png)
+![](res/2020-04-14-09-58-56.png)
 
 
 ![](res/2020-04-06-23-27-29.png)
@@ -41,6 +41,12 @@ W Mainie (plik Program.cs) poproszono użytkownika o podanie nazwy produktu i ut
 Zmodyfikowano model wprowadzając pojęcie Dostawcy - *Supplier* jak poniżej.
 
 ![](res/2020-04-08-17-44-39.png)
+
+Klasa *Supplier* zawiera następujące pola:
+* int SupplierID
+* string CompanyName
+* string Street
+* string City
 
 ![](res/2020-04-08-17-46-57.png)
 
@@ -65,9 +71,13 @@ Dodano do bazy dwa produkty oraz dostawcę. Następnie znaleziono poprzednio wpr
 
 ![](res/2020-04-07-10-01-56.png)
 
+Produkty przed dodaniem dostawcy:
+
 ![](res/2020-04-07-10-19-32.png)
 
 ![](res/2020-04-07-10-19-54.png)
+
+Produkty po przypisaniu dostawcy:
 
 ![](res/2020-04-07-10-22-21.png)
 
@@ -140,13 +150,14 @@ Dodano klasę *Category* z polami:
 * string Name
 * List \<Product> Products
 
-Schemat bazy danych wygląda jak poniżej.
+![](res/2020-04-07-14-30-46.png)
 
-![](res/2020-04-08-18-23-17.png)
+Schemat bazy danych wygląda jak poniżej.
 
 ![](res/2020-04-08-18-30-56.png)
 
-![](res/2020-04-07-14-30-46.png)
+![](res/2020-04-08-18-23-17.png)
+
 
 Do klasy *ProdContext* dodano kolejny *DbSet*, odwzorowujący zbiór kategorii.
 
@@ -203,7 +214,7 @@ W celu wykonania powyższej relacji konieczne było stworzenie nowej klasy *Invo
 
  ![](res/2020-04-08-18-47-23.png)
 
-Do klasy *ProdContext* dodano jeden *DbSet* odzwierciedlający zbiór faktur oraz drugi - przedstawiający zbiór relacji między produktami a fakturami.
+Do klasy *ProdContext* dodano jeden *DbSet* odzwierciedlający zbiór faktur oraz drugi - przedstawiający zbiór relacji między produktami a fakturami. Nadpisano również metodę *OnModelCreating*.
 
 ![](res/2020-04-08-18-53-11.png)
 
@@ -346,9 +357,23 @@ Wprowadzono do modelu następujące hierarchie.
 
 ![](res/2020-04-08-20-07-22.png)
 
-![](res/2020-04-08-20-14-12.png)
+Klasa *Company* zawiera pola:
+* int CompanyID
+* string CompanyName
+* string Street
+* string City
+* string ZipCode
+
+![](res/2020-04-14-10-11-00.png)
+
+Klasa *Customer* zawiera pole:
+* float Discount
 
 ![](res/2020-04-08-20-15-13.png)
+
+Klasa *Supplier* zawiera pola:
+* string BankAccountNumber
+* List \<Product> Products
 
 ![](res/2020-04-08-20-29-34.png)
 
@@ -358,7 +383,7 @@ Baza danych wygląda następująco:
 
 #### b) 
 ##### TablePerHierarchy
-W celu dodania i pobrania z bazy firm stosując strategię mapowania dziedziczenia *TablePerHierarchy*, zmieniono metodę *OnModelCreating* w klasie *ProdContext*. Zastąpiono również wcześniejszy DbSet dostawców, *DbSet'em* firm. 
+W celu dodania i pobrania z bazy firm, stosując strategię mapowania dziedziczenia *TablePerHierarchy*, zmieniono metodę *OnModelCreating* w klasie *ProdContext*. Zastąpiono również wcześniejszy DbSet dostawców, *DbSet'em* firm. 
 
 ![](res/2020-04-08-20-27-32.png)
 
@@ -433,7 +458,41 @@ Poniżej pobrano z bazy dane dotyczące dostawców i klientów.
 ![](res/2020-04-08-21-51-38.png)
 
 ##### TablePerType
-Niestety strategia mapowania dziedziczenia *TablePerType* nie jest dostępna w wersji ponad *3.0 Entity Framework*, więc nie da się wykonać tego podpunktu.
+Niestety strategia mapowania dziedziczenia *TablePerType* nie jest dostępna w wersjach od *3.0 Entity Framework*, więc nie da się wykonać tego podpunktu. Poniżej jednak zostały przedstawione próby wykonania zadania.
+
+![](res/2020-04-14-11-09-16.png)
+
+![](res/2020-04-14-11-10-16.png)
+
+![](res/2020-04-14-11-31-20.png)
+
+Schemat bazy wygląda następująco:
+
+![](res/2020-04-14-11-19-20.png)
+
+![](res/2020-04-14-11-21-00.png)
+
+Można zauważyć, że w tabeli *Companies* brakuje pola *Discount* należącego do klasy *Customer*.
+
+Do bazy dodano poniższe dane:
+
+![](res/2020-04-14-11-25-01.png)
+
+![](res/2020-04-14-11-25-27.png)
+
+Spróbowano wypisać dodane wcześniej dane.
+
+![](res/2020-04-14-11-36-53.png)
+
+Dostawcy zostali wypisani poprawnie:
+
+![](res/2020-04-14-11-29-10.png)
+
+Z kolei przy próbie wypisania klientów, został wyświetlony poniższy wyjątek:
+
+![](res/2020-04-14-11-30-47.png)
 
 ##### TablePerClass
 Strategia *TablePerClass* również nie jest możliwa do wykonania, ponieważ metoda *ToTable()*, która jest niezbędna do wykonania tego zadania rzuca błąd od wersji *3.0 Entity Framework*.
+
+![](res/2020-04-14-10-41-50.png)
