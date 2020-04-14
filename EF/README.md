@@ -13,6 +13,8 @@ Dodano klasę *Product* z polami:
 
 ![](res/2020-04-06-21-54-41.png)
 
+<div style="page-break-after: always;"></div>
+
 #### c), d)
 Stworzono klasę *ProdContext* dziedziczącą po *DbContext* i dodano do niej zbiór (*DbSet*) produktów.
 
@@ -36,6 +38,8 @@ W Mainie (plik Program.cs) poproszono użytkownika o podanie nazwy produktu i ut
 
 ![](res/2020-04-06-23-39-44.png)
 
+<div style="page-break-after: always;"></div>
+
 ### Zadanie II
 
 Zmodyfikowano model wprowadzając pojęcie Dostawcy - *Supplier* jak poniżej.
@@ -50,6 +54,8 @@ Klasa *Supplier* zawiera następujące pola:
 
 ![](res/2020-04-08-17-46-57.png)
 
+<div style="page-break-after: always;"></div>
+
 Do klasy Product dodano pole Supplier.
 
 ![](res/2020-04-08-17-47-55.png)
@@ -57,6 +63,8 @@ Do klasy Product dodano pole Supplier.
 Do klasy *ProdContext* dodano kolejny *DbSet*, reprezentujący wszystkich dostawców.
 
 ![](res/2020-04-08-18-02-06.png)
+
+<div style="page-break-after: always;"></div>
 
 Schemat w bazie danych wygląda następująco:
 
@@ -88,6 +96,8 @@ Wyświetlono wszystkie produkty wraz z nazwą dostawcy.
 
 ![](res/2020-04-07-10-36-30.png)
 
+<div style="page-break-after: always;"></div>
+
 ### Zadanie III
 Odwrócono relację zgodnie z poniższym schematem.
 
@@ -104,6 +114,8 @@ Dodano do bazy nowe produkty i stworzono dostawcę. Następnie znaleziono wcześ
 
 ![](res/2020-04-07-13-24-45.png)
 
+<div style="page-break-after: always;"></div>
+
 Wypisano wszystkie produkty dostarczane przez dostawcę. 
 
 ![](res/2020-04-07-13-44-03.png)
@@ -112,6 +124,8 @@ Wypisano wszystkie produkty dostarczane przez dostawcę.
 
 ![](res/2020-04-07-13-46-17.png)
 
+<div style="page-break-after: always;"></div>
+
 Schemat bazy danych wygląda jak poniżej:
 
 ![](res/2020-04-07-13-47-13.png)
@@ -119,6 +133,8 @@ Schemat bazy danych wygląda jak poniżej:
 ![](res/2020-04-07-13-48-18.png)
 
 ![](res/2020-04-07-13-49-02.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Zadanie IV
 Zamodelowano relację dwustronną jak poniżej.
@@ -136,6 +152,8 @@ Stworzono kilka produktów oraz dodano je do produktów dostarczanych przez nowo
 
 ![](res/2020-04-07-14-15-56.png)
 
+<div style="page-break-after: always;"></div>
+
 Następnie wyświetlono wszystkie produkty wraz z nazwą dostawcy.
 
 ![](res/2020-04-07-14-19-50.png)
@@ -143,6 +161,8 @@ Następnie wyświetlono wszystkie produkty wraz z nazwą dostawcy.
 ![](res/2020-04-07-14-21-12.png)
 
 ![](res/2020-04-07-14-21-59.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Zadanie V
 Dodano klasę *Category* z polami:
@@ -163,6 +183,8 @@ Do klasy *ProdContext* dodano kolejny *DbSet*, odwzorowujący zbiór kategorii.
 
 ![](res/2020-04-07-14-43-33.png)
 
+<div style="page-break-after: always;"></div>
+
 #### a)
 Zmodyfikowano klasę *Product*, dodając do niej pole *Category*.
 
@@ -170,6 +192,7 @@ Zmodyfikowano klasę *Product*, dodając do niej pole *Category*.
 
 ![](res/2020-04-07-14-30-25.png)
 
+<div style="page-break-after: always;"></div>
 
  #### b)
  Stworzono kilka produktów i kilka kategorii.
@@ -177,12 +200,16 @@ Zmodyfikowano klasę *Product*, dodając do niej pole *Category*.
  ![](res/2020-04-07-14-50-58.png)
  ![](res/2020-04-07-14-51-30.png)
 
+<div style="page-break-after: always;"></div>
+
  #### c)
  Dodano kilka produktów do wybranej kategorii.
 
  ![](res/2020-04-07-14-58-35.png)
 
  ![](res/2020-04-07-14-59-03.png)
+
+<div style="page-break-after: always;"></div>
 
  #### d)
  Wypisano wszystkie produkty należące do kategorii *Electronics*.
@@ -201,6 +228,8 @@ Następnie wypisano kategorię, do której należy *TV*.
 
  ![](res/2020-04-07-15-12-37.png)
 
+ <div style="page-break-after: always;"></div>
+
  ### Zadanie VI
  Zmodyfikowano relację wiele-do-wielu, jak poniżej.
 
@@ -214,9 +243,13 @@ W celu wykonania powyższej relacji konieczne było stworzenie nowej klasy *Invo
 
  ![](res/2020-04-08-18-47-23.png)
 
+ <div style="page-break-after: always;"></div>
+
 Do klasy *ProdContext* dodano jeden *DbSet* odzwierciedlający zbiór faktur oraz drugi - przedstawiający zbiór relacji między produktami a fakturami. Nadpisano również metodę *OnModelCreating*.
 
 ![](res/2020-04-08-18-53-11.png)
+
+<div style="page-break-after: always;"></div>
 
 Schemat bazy danych wygląda następująco:
 
@@ -343,12 +376,16 @@ Wypisano produkty sprzedane w ramach wybranej faktury/transakcji.
 
 ![](res/2020-04-08-19-59-02.png)
 
+<div style="page-break-after: always;"></div>
+
 #### d)
 Wypisano faktury, w ramach których był sprzedany wybrany produkt.
 
 ![](res/2020-04-08-20-05-07.png)
 
 ![](res/2020-04-08-20-04-52.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Zadanie VII
 #### Dziedziczenie
@@ -371,15 +408,21 @@ Klasa *Customer* zawiera pole:
 
 ![](res/2020-04-08-20-15-13.png)
 
+<div style="page-break-after: always;"></div>
+
 Klasa *Supplier* zawiera pola:
 * string BankAccountNumber
 * List \<Product> Products
 
 ![](res/2020-04-08-20-29-34.png)
 
+<div style="page-break-after: always;"></div>
+
 Baza danych wygląda następująco:
 
 ![](res/2020-04-08-20-52-40.png)
+
+<div style="page-break-after: always;"></div>
 
 #### b) 
 ##### TablePerHierarchy
@@ -457,6 +500,8 @@ Poniżej pobrano z bazy dane dotyczące dostawców i klientów.
 
 ![](res/2020-04-08-21-51-38.png)
 
+<div style="page-break-after: always;"></div>
+
 ##### TablePerType
 Niestety strategia mapowania dziedziczenia *TablePerType* nie jest dostępna w wersjach od *3.0 Entity Framework*, więc nie da się wykonać tego podpunktu. Poniżej jednak zostały przedstawione próby wykonania zadania.
 
@@ -466,6 +511,8 @@ Niestety strategia mapowania dziedziczenia *TablePerType* nie jest dostępna w w
 
 ![](res/2020-04-14-11-31-20.png)
 
+<div style="page-break-after: always;"></div>
+
 Schemat bazy wygląda następująco:
 
 ![](res/2020-04-14-11-19-20.png)
@@ -474,11 +521,15 @@ Schemat bazy wygląda następująco:
 
 Można zauważyć, że w tabeli *Companies* brakuje pola *Discount* należącego do klasy *Customer*.
 
+<div style="page-break-after: always;"></div>
+
 Do bazy dodano poniższe dane:
 
 ![](res/2020-04-14-11-25-01.png)
 
 ![](res/2020-04-14-11-25-27.png)
+
+<div style="page-break-after: always;"></div>
 
 Spróbowano wypisać dodane wcześniej dane.
 
