@@ -54,7 +54,7 @@ Do klasy Product dodano pole Supplier.
 
 ![](res/2020-04-08-17-47-55.png)
 
-Do klasy *ProdContext* dodano kolejny DbSet, reprezentujący wszystkich dostawców.
+Do klasy *ProdContext* dodano kolejny *DbSet*, reprezentujący wszystkich dostawców.
 
 ![](res/2020-04-08-18-02-06.png)
 
