@@ -7,3 +7,4 @@ Technologies:
 * [Oracle SQL](../master/Oracle "Lab 1")
 * [MongoDB](../master/MongoDB "Lab 2")
 * [Entity Framework](../master/EF "Lab 3")
+* [Hibernate](../master/Hibernate "Lab 4")
