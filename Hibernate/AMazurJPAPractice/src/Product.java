@@ -18,4 +18,11 @@ public class Product {
         // for Hibernate
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "ProductName='" + ProductName + '\'' +
+                ", UnitsOnStock=" + UnitsOnStock +
+                '}';
+    }
 }

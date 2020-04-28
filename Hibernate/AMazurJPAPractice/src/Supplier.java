@@ -12,6 +12,7 @@ public class Supplier {
     public String City;
 
     @OneToMany
+    @JoinColumn(name="Supplier_FK")
     public Set<Product> suppliedProducts = new HashSet<>();
 
 
@@ -33,5 +34,15 @@ public class Supplier {
 
     public void addProduct(Product product){
         this.suppliedProducts.add(product);
+    }
+
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "CompanyName='" + CompanyName + '\'' +
+                ", Street='" + Street + '\'' +
+                ", City='" + City + '\'' +
+                ", suppliedProducts=" + suppliedProducts +
+                '}';
     }
 }
