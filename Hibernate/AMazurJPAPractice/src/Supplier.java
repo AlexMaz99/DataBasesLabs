@@ -6,14 +6,14 @@ import java.util.Set;
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int SupplierId;
-    public String CompanyName;
-    public String Street;
-    public String City;
+    private int SupplierId;
+    private String CompanyName;
+    private String Street;
+    private String City;
 
     @OneToMany
-    @JoinColumn(name="Supplier_FK")
-    public Set<Product> suppliedProducts = new HashSet<>();
+    @JoinColumn(name="SUPPLIED_BY")
+    private Set<Product> suppliedProducts = new HashSet<>();
 
 
     public Supplier(String companyName, String street, String city) {
@@ -34,6 +34,11 @@ public class Supplier {
 
     public void addProduct(Product product){
         this.suppliedProducts.add(product);
+        product.setSupplier(this);
+    }
+
+    public boolean suppliesProduct(Product product){
+        return suppliedProducts.contains(product);
     }
 
     @Override
