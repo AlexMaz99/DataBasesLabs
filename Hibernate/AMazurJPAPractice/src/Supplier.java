@@ -3,34 +3,25 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Supplier {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int SupplierId;
-    private String CompanyName;
-    private String Street;
-    private String City;
+public class Supplier extends Company{
+    private String bankAccountNumber;
 
     @OneToMany
     @JoinColumn(name="SUPPLIED_BY")
     private Set<Product> suppliedProducts = new HashSet<>();
 
-
-    public Supplier(String companyName, String street, String city) {
-        CompanyName = companyName;
-        Street = street;
-        City = city;
-    }
-
     public Supplier() {
     }
 
-    public Supplier(String companyName, String street, String city, Product product) {
-        CompanyName = companyName;
-        Street = street;
-        City = city;
-        this.suppliedProducts.add(product);
+    public Supplier(String bankAccountNumber) {
+        this.bankAccountNumber = bankAccountNumber;
     }
+
+    public Supplier(String companyName, String country, String city, String street, String zipCode, String bankAccountNumber) {
+        super(companyName, country, city, street, zipCode);
+        this.bankAccountNumber = bankAccountNumber;
+    }
+
 
     public void addProduct(Product product){
         this.suppliedProducts.add(product);
@@ -41,13 +32,15 @@ public class Supplier {
         return suppliedProducts.contains(product);
     }
 
-    @Override
-    public String toString() {
-        return "Supplier{" +
-                "CompanyName='" + CompanyName + '\'' +
-                ", Street='" + Street + '\'' +
-                ", City='" + City + '\'' +
-                ", suppliedProducts=" + suppliedProducts +
-                '}';
+    public Set<Product> getSuppliedProducts() {
+        return suppliedProducts;
+    }
+
+    public String getBankAccountNumber() {
+        return bankAccountNumber;
+    }
+
+    public void setBankAccountNumber(String bankAccountNumber) {
+        this.bankAccountNumber = bankAccountNumber;
     }
 }

@@ -21,6 +21,7 @@ public class Invoice {
 
     public void addProduct(Product product){
         includesProducts.add(product);
+        product.getCanBeSoldIn().add(this);
         this.Quantity += 1;
     }
 
